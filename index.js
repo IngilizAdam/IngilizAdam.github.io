@@ -7,3 +7,8 @@ app.get("/tshirt", (request, response) => {
         size: "large"
     });
 });
+
+app.listen(
+    PORT,
+    () => console.log("its alive on http://localhost:" + PORT)
+);
