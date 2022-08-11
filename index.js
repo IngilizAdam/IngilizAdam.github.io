@@ -1,14 +1,24 @@
 const express = require("express");
 const app = express();
-const fs = require("fs");
+//const fs = require("fs");
 const PORT = 80;
 
 app.use(express.json());
 
+var data = ["red:12", "green:34", "blue:56"];
+
 app.get("/desk/:led", (request, response) => {
-    const contents = fs.readFileSync("test.txt", "utf-8").split("\n");
+    /*const contents = fs.readFileSync("test.txt", "utf-8").split("\n");
     for(let i = 0; i < contents.length; i++) {
         const content = contents[i];
+        if(content.split(":")[0] == request.params.led) {
+            response.status(200).send(content.split(":")[1]);
+            console.log(content.split(":")[1]);
+            break;
+        }
+    }*/
+    for(let i = 0; i < data.length; i++) {
+        const content = data[i];
         if(content.split(":")[0] == request.params.led) {
             response.status(200).send(content.split(":")[1]);
             console.log(content.split(":")[1]);
