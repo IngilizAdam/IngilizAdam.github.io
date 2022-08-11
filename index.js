@@ -1,5 +1,5 @@
 const app = require("express")();
-const PORT = 8080;
+const PORT = 80;
 
 app.get("/tshirt", (request, response) => {
     response.status(200).send({
