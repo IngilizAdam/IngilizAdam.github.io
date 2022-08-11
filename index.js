@@ -15,14 +15,9 @@ app.post("/tshirt/:id", (request, response) => {
     const {id} = request.params;
     const {logo} = request.body;
 
-    var fs = require('fs');
-    fs.writeFile("test.txt", request, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
+    localStorage.setItem('id', JSON.stringify(id));
 
-    response.send({tshirt: "a with your " + logo + " and ID of " + id});
+    response.send({tshirt: "a with your " + JSON.parse(localStorage.getItem('id')) + " and ID of " + id});
 });
 
 app.listen(
