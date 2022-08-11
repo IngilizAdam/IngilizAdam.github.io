@@ -16,7 +16,7 @@ app.post("/tshirt/:id", (request, response) => {
     const {logo} = request.body;
 
     var fs = require('fs');
-    fs.writeFile("test.txt", jsonData, function(err) {
+    fs.writeFile("test.txt", request, function(err) {
         if (err) {
             console.log(err);
         }
