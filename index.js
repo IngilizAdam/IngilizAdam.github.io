@@ -13,7 +13,7 @@ app.get("/tshirt", (request, response) => {
 
 app.post("/tshirt/:id", (request, response) => {
     const {id} = request.params;
-    const {logo} = req.body;
+    const {logo} = request.body;
 
     if(!logo){
         response.status(418).send({message: "We need a logo!"});
