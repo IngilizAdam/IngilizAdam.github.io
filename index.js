@@ -32,7 +32,7 @@ app.get("/desk/:led/:id", (request, response) => {
     const id = request.params.id;
     console.log(request.params);
     
-    var text = "";
+    /*var text = "";
     const contents = fs.readFileSync("test.txt", "utf-8").trim().split("\n");
     for(let i = 0; i < contents.length; i++) {
         var content = contents[i];
@@ -45,7 +45,15 @@ app.get("/desk/:led/:id", (request, response) => {
     fs.writeFile('test.txt', text, function (err) {
         if (err) throw err;
         console.log('Saved!');
-    });
+    });*/
+
+    for(let i = 0; i < data.length; i++) {
+        var content = data[i];
+        if(content.split(":")[0] == request.params.led) {
+            data[i] = led + ":" + id;
+            break;
+        }
+    }
 
     response.send(id);
 });
