@@ -15,9 +15,12 @@ app.post("/tshirt/:id", (request, response) => {
     const {id} = request.params;
     const {logo} = request.body;
 
-    if(!logo){
-        response.status(418).send({message: "We need a logo!"});
-    }
+    var fs = require('fs');
+    fs.writeFile("test.txt", jsonData, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
 
     response.send({tshirt: "a with your " + logo + " and ID of " + id});
 });
